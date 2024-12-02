@@ -14,8 +14,7 @@ import Expense from "../../../views/admin/transaction/components/Expense";
 import Income from "../../../views/admin/transaction/components/Income";
 
 
-export default function Default(props) {
-    const {...rest} = props;
+export default function Default() {
     const [index, setIndex] = useState(0);
 
     const handleTabsChange = (index: number) => {

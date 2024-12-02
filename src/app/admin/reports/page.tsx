@@ -27,8 +27,7 @@ import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
 import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
 
 
-export default function Default(props) {
-    const {...rest} = props;
+export default function Default() {
     const expenses = useSelector((state: IReducer) => state.Expense)
     const incomes = useSelector((state: IReducer) => state.Income)
     const dispatch = useDispatch();

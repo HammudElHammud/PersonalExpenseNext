@@ -24,7 +24,6 @@ export default function Default(props) {
     const Category = useSelector((state: IReducer) => state.Category);
     const stateIncome = useSelector((state: IReducer) => state.Income);
     const stateExpense = useSelector((state: IReducer) => state.Expense);
-    const { ...rest } = props;
 
 
     const dispatch = useDispatch();
