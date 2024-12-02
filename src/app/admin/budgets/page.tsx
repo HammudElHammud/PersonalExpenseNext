@@ -89,7 +89,7 @@ export default function Default() {
                 {Object.values(Category)?.map((budget ) => {
                     // @ts-ignore
                     const typedBudget = budget as IInitialState;
-
+                   // @ts-ignore
                     const percentage = percentageSpent[typedBudget?.label] || 0;
                     // @ts-ignore
                     return (
