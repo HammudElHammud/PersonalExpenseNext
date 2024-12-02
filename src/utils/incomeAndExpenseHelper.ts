@@ -1,9 +1,9 @@
 export const calculateRemainingAmounts = (incomes: any[], expenses: any[]) => {
-  const remainingAmounts = {};
+  const remainingAmounts: { [key: string]: number } = {};
 
   incomes.forEach((income) => {
     Object.keys(income.categoryAmounts).forEach((category) => {
-      if (!remainingAmounts[category]) {
+      if (!(category in remainingAmounts)) {
         remainingAmounts[category] = 0;
       }
       remainingAmounts[category] += parseFloat(income.categoryAmounts[category]);
@@ -12,7 +12,7 @@ export const calculateRemainingAmounts = (incomes: any[], expenses: any[]) => {
 
   expenses.forEach((expense) => {
     Object.keys(expense.categoryAmounts).forEach((category) => {
-      if (!remainingAmounts[category]) {
+      if (!(category in remainingAmounts)) {
         remainingAmounts[category] = 0;
       }
       remainingAmounts[category] -= parseFloat(expense.categoryAmounts[category]);
