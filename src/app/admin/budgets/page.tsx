@@ -85,11 +85,14 @@ export default function Default() {
                         Your Budgets
                     </Text>
                 </Flex>
-                {Object.values(Category)?.map((budget, index) => {
+
+                {Object.values(Category)?.map((budget ) => {
+                    // @ts-ignore
                     const percentage = percentageSpent[budget?.label] || 0;
+                    // @ts-ignore
                     return (
                         <BudgetItem
-                            key={index}
+                            key={budget?.label}
                             name={budget?.label}
                             description={budget?.description}
                             image={budget?.BGicon}
