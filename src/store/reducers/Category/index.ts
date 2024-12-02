@@ -10,9 +10,6 @@ export enum UserActionEnum {
 interface IInitialState {
     BGicon: any
     label: string
-    spent: string | number
-    limit: string | number
-    lastDate: string
     description: string
 }
 
@@ -75,7 +72,7 @@ const retrieveUserFromBackend = async () => {
     ]
 }
 export const retrieveUserInfoCategory =
-    () => async (dispatch: Dispatch<{ type: string; payload: any }>) => {
+    () => async (dispatch: Dispatch<{ type: string; payload: IAction }>) => {
         try {
             return dispatch({
                 type: UserActionEnum.RETRIEVE_USER_CATEGORY,
