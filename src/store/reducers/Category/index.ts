@@ -7,7 +7,7 @@ export enum UserActionEnum {
 }
 
 
-interface IInitialState {
+export interface IInitialState {
     BGicon: any
     label: string
     description: string
@@ -26,7 +26,13 @@ interface IUpdateUserCategory {
 
 type IAction = IRetrieveUserCategory | IUpdateUserCategory
 
-const initialState: {} = {}
+const initialState: {} = [
+    {
+        BGicon: null,
+        label: "",
+        description: ""
+    },
+]
 
 export default function reducer(state = initialState, action: IAction) {
     switch (action.type) {

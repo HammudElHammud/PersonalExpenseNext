@@ -11,18 +11,13 @@ import {calculateTotalExpenses, calculateRemainingInfoAmounts} from "../../../ut
 
 import {useDispatch, useSelector} from 'react-redux'
 import {IReducer} from "store/store";
-import { retrieveUserInfoCategory} from "store/reducers/Category";
+import {IInitialState, retrieveUserInfoCategory} from "store/reducers/Category";
 // Assets
 import Card from "../../../components/card/Card";
 
 import BudgetItem from "../../../views/admin/budgets/components/BudgetItem";
 import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
 import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
-interface IInitialState {
-    BGicon: any
-    label: string
-    description: string
-}
 
 
 export default function Default() {
