@@ -13,9 +13,9 @@ import html2canvas from 'html2canvas';
 
 
 const Chart = dynamic(() => import('react-apexcharts'), {ssr: false});
-import React, { useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import TotalSpent from "../../../views/admin/default/components/TotalSpent";
 import StatisticsCardWrappers from "../../../views/admin/default/components/StatisticsCardWrappers";
@@ -23,12 +23,21 @@ import {IReducer} from "../../../store/store";
 import {expensesAndIncomeData} from "../../../utils/dateHelper";
 import {groupByDay} from "../../../utils/incomeAndExpenseHelper";
 import PieCard from "../../../views/admin/default/components/PieCard";
+import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
+import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
 
 
 export default function transactions(props) {
     const {...rest} = props;
     const expenses = useSelector((state: IReducer) => state.Expense)
     const incomes = useSelector((state: IReducer) => state.Income)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(retrieveUserInfoExpense())
+        dispatch(retrieveUserInfoIncome())
+
+    }, [dispatch]);
     const {
         lastWeekExpenses,
         lastWeekIncomes,

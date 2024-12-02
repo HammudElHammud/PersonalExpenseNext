@@ -16,9 +16,11 @@ import {groupByDay, groupByWeekDay} from "../../../utils/incomeAndExpenseHelper"
 import {
     expensesAndIncomeData,
 } from "../../../utils/dateHelper";
-import { useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {IReducer} from "../../../store/store";
 import StatisticsCardWrappers from "../../../views/admin/default/components/StatisticsCardWrappers";
+import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
+import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
 
 export default function Default() {
     const expenses = useSelector((state: IReducer) => state.Expense)
@@ -35,6 +37,14 @@ export default function Default() {
         monthExpenses,
         monthIncome
     } = expensesAndIncomeData(expenses, incomes)
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(retrieveUserInfoExpense())
+        dispatch(retrieveUserInfoIncome())
+
+    }, [dispatch]);
     // this is demo data for use if its needed
     // localStorage.setItem('userExpenses', JSON.stringify([
     //         {
