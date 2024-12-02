@@ -97,6 +97,7 @@ export default function Expense() {
                     if (canAllowExpense(updatedData)) {
                         console.log("Expense allowed");
                         setTimeout(() => {
+                            // @ts-ignore
                             dispatch(createUserInfoExpense(updatedData))
                             setAlertMessage(`Successfully Processed`);
                             setTimeout(() => {

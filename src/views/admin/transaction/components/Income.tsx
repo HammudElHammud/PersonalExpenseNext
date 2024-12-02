@@ -48,6 +48,7 @@ export default function Income() {
         date: Yup.date().required("Date is required"),
     });
 
+    // @ts-ignore
     const validatePercentages = (values) => {
         let errors = {};
         const totalPercentage = Object.values(values.categoryPercentages).reduce(
@@ -63,7 +64,7 @@ export default function Income() {
     };
 
     const updateIncomeData = (newIncomeData: any) => {
-
+      // @ts-ignore
         dispatch(createUserInfoIncome(newIncomeData));
         setAlertMessage(`Successfully Processed`);
         setTimeout(() => {
