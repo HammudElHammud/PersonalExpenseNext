@@ -27,7 +27,7 @@ import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
 import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
 
 
-export default function transactions(props) {
+export default function Default(props) {
     const {...rest} = props;
     const expenses = useSelector((state: IReducer) => state.Expense)
     const incomes = useSelector((state: IReducer) => state.Income)

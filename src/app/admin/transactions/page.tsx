@@ -14,7 +14,7 @@ import Expense from "../../../views/admin/transaction/components/Expense";
 import Income from "../../../views/admin/transaction/components/Income";
 
 
-export default function transactions(props) {
+export default function Default(props) {
     const {...rest} = props;
     const [index, setIndex] = useState(0);
 
