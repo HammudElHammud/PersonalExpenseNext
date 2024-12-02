@@ -38,7 +38,11 @@ export function SidebarLinks(props: SidebarLinksProps) {
         route.layout === '/admin'
       ) {
         return (
-          <Link key={index} href={route.layout + route.path}  onClick={props.onclick(route.path.toLowerCase())}>
+            <Link
+                key={index}
+                href={route.layout + route.path}
+                onClick={() => props.onclick(route.path.toLowerCase())}
+            >
             {route.icon ? (
               <Box>
                 <HStack
