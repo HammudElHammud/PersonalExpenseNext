@@ -58,6 +58,7 @@ export default function HeaderLinks(props: {
 
 
     useEffect(() => {
+
         const calculateAmounts = () => {
             const totalExpenses = calculateTotalExpenses(stateExpense);
             const { remainingAmounts, percentageSpent } = calculateRemainingInfoAmounts(stateIncome, totalExpenses);
@@ -68,14 +69,16 @@ export default function HeaderLinks(props: {
 
             // Check for percentages greater than 80% and update notifications
             const newNotifications = Object.keys(percentageSpent).reduce((acc, category) => {
-                if (percentageSpent[category] > 80) {
-                    acc.push(`${category} has reached ${percentageSpent[category]}% of its limit.`);
+                const percentage = parseFloat(percentageSpent[category]); // Convert to number
+                if (percentage > 80) {
+                    acc.push(`${category} has reached ${percentage}% of its limit.`);
                 }
                 return acc;
             }, []);
 
             setNotifications(newNotifications);
         };
+
 
         calculateAmounts();
 
