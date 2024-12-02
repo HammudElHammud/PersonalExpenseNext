@@ -23,7 +23,7 @@ interface IRetrieveUser {
 
 interface IUpdateUser {
     type: UserActionEnum.UPDATE_USER_CATEGORY
-    payload: IInitialState
+    payload: IInitialState[]
 }
 
 
