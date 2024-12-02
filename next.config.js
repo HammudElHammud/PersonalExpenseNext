@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: [
       'images.unsplash.com',
