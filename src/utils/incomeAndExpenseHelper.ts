@@ -90,14 +90,17 @@ export const sumIncomeForDateRange = (incomeData: IncomeItem[], startDate, endDa
       })
       .reduce((total, item) => total + item.amount, 0);
 }
-// @ts-ignore
-export const groupByDay = (data) => {
+interface DataItem {
+  date: string;
+  amount: number;
+}
 
+export const groupByDay = (data: IncomeItem[]): number[] => {
   const dailyAmounts = Array(31).fill(0);
 
-  data.sort((a, b) => new Date(a.date) - new Date(b.date));
+  data.sort((a: DataItem, b: DataItem) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-  data.forEach(item => {
+  data.forEach((item: DataItem) => {
     const date = new Date(item.date);
     const day = date.getDate() - 1;
     if (day >= 0 && day < 31) {
@@ -108,20 +111,18 @@ export const groupByDay = (data) => {
   return dailyAmounts;
 };
 
-
-// @ts-ignore
-export const groupByWeekDay = (data) => {
-
+export const groupByWeekDay = (data: IncomeItem[]): number[] => {
   const weekDays = [0, 0, 0, 0, 0, 0, 0];
 
-  data.forEach(item => {
+  data.forEach((item: DataItem) => {
     const date = new Date(item.date);
     const dayOfWeek = date.getDay();
-    weekDays[dayOfWeek] += parseFloat(item.amount);
+    weekDays[dayOfWeek] += parseFloat(item.amount.toString());
   });
 
   return weekDays;
 };
+
 
 
 
