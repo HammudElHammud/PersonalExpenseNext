@@ -18,6 +18,11 @@ import Card from "../../../components/card/Card";
 import BudgetItem from "../../../views/admin/budgets/components/BudgetItem";
 import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
 import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
+interface IInitialState {
+    BGicon: any
+    label: string
+    description: string
+}
 
 
 export default function Default() {
@@ -88,16 +93,18 @@ export default function Default() {
 
                 {Object.values(Category)?.map((budget ) => {
                     // @ts-ignore
-                    const percentage = percentageSpent[budget?.label] || 0;
+                    const typedBudget = budget as IInitialState;
+
+                    const percentage = percentageSpent[typedBudget?.label] || 0;
                     // @ts-ignore
                     return (
                         <BudgetItem
-                            key={budget?.label}
-                            name={budget?.label}
-                            description={budget?.description}
-                            image={budget?.BGicon}
-                            totalExpense={totalExpenses[budget?.label] || 0}
-                            remainingAmount={remainingAmounts[budget?.label] || 0}
+                            key={typedBudget?.label}
+                            name={typedBudget?.label}
+                            description={typedBudget?.description}
+                            image={typedBudget?.BGicon}
+                            totalExpense={totalExpenses[typedBudget?.label] || 0}
+                            remainingAmount={remainingAmounts[typedBudget?.label] || 0}
                             percentageSpent={percentage}
                             isAdd={false}
                         />
