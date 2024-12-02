@@ -23,7 +23,7 @@ export const calculateRemainingAmounts = (incomes: any[], expenses: any[]) => {
 };
 
 export const calculateTotalExpenses = (expenses: any[]) => {
-  const totalExpenses = {};
+  const totalExpenses : { [key: string]: number } = {};
 
   expenses?.forEach((expense) => {
     Object.keys(expense.categoryAmounts).forEach((category) => {
