@@ -20,7 +20,7 @@ import {retrieveUserInfoExpense} from "../../../store/reducers/Expense";
 import {retrieveUserInfoIncome} from "../../../store/reducers/Income";
 
 
-export default function Default(props) {
+export default function Default() {
     const Category = useSelector((state: IReducer) => state.Category);
     const stateIncome = useSelector((state: IReducer) => state.Income);
     const stateExpense = useSelector((state: IReducer) => state.Expense);
