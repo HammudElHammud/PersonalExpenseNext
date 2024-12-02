@@ -65,13 +65,15 @@ export const calculateRemainingInfoAmounts = (incomes: any[], totalExpenses: { [
   return { remainingAmounts, percentageSpent };
 };
 
-
+// @ts-ignore
 export const sumAmounts = (data) => {
+  // @ts-ignore
   return data.reduce((total, item) => total + item.amount, 0);
 };
 
-
+// @ts-ignore
 export const sumIncomeForDateRange = (incomeData, startDate, endDate) => {
+  // @ts-ignore
   return incomeData
       .filter(item => {
         const itemDate = new Date(item.date);
@@ -79,7 +81,7 @@ export const sumIncomeForDateRange = (incomeData, startDate, endDate) => {
       })
       .reduce((total, item) => total + item.amount, 0);
 }
-
+// @ts-ignore
 export const groupByDay = (data) => {
 
   const dailyAmounts = Array(31).fill(0);
@@ -98,7 +100,7 @@ export const groupByDay = (data) => {
 };
 
 
-
+// @ts-ignore
 export const groupByWeekDay = (data) => {
 
   const weekDays = [0, 0, 0, 0, 0, 0, 0];
