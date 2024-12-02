@@ -80,8 +80,10 @@ const retrieveUserFromBackend = async () => {
 export const retrieveUserInfoCategory =
     () => async (dispatch: Dispatch<{ type: string; payload: IAction }>) => {
         try {
+            // @ts-ignore
             return dispatch({
                 type: UserActionEnum.RETRIEVE_USER_CATEGORY,
+                // @ts-ignore
                 payload: await retrieveUserFromBackend(),
             })
         } catch (e) {
