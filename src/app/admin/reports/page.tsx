@@ -3,7 +3,7 @@ import {
     Box,
     Text,
     SimpleGrid,
-    useColorModeValue,IconButton, Select, Flex,
+    useColorModeValue, Select, Flex,
     Button,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons'
@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 
 
 const Chart = dynamic(() => import('react-apexcharts'), {ssr: false});
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useState, useRef} from 'react';
 
 import {useSelector} from "react-redux";
 
