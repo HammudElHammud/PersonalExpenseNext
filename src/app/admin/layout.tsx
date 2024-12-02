@@ -47,6 +47,7 @@ export default function AdminLayout(props: DashboardLayoutProps) {
   const bg = useColorModeValue('secondaryGray.300', 'navy.900');
   const onclickToChangePage = (value: string) => {
     setTimeout(()=>{
+      // @ts-ignore
       setActiveSidebar(getActiveNavbarText(routes))
     }, 500)
   }
