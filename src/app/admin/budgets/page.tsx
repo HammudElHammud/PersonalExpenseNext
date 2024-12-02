@@ -90,7 +90,10 @@ export default function Default() {
                     // @ts-ignore
                     const typedBudget = budget as IInitialState;
                    // @ts-ignore
-                    const percentage = percentageSpent[typedBudget?.label] || 0;
+                    const totalExpense = totalExpenses[typedBudget?.label] || 0;
+                    const remainingAmount = remainingAmounts[typedBudget?.label] || 0;
+                    const percentage = percentageSpent[typedBudget?.label] || "0.00";
+
                     // @ts-ignore
                     return (
                         <BudgetItem
@@ -98,8 +101,8 @@ export default function Default() {
                             name={typedBudget?.label}
                             description={typedBudget?.description}
                             image={typedBudget?.BGicon}
-                            totalExpense={totalExpenses[typedBudget?.label] || 0}
-                            remainingAmount={remainingAmounts[typedBudget?.label] || 0}
+                            totalExpense={totalExpense}
+                            remainingAmount={remainingAmount}
                             percentageSpent={percentage}
                             isAdd={false}
                         />
