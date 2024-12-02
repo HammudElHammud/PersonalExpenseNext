@@ -41,7 +41,9 @@ export default function Default() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(retrieveUserInfoExpense())
+        // @ts-ignore
         dispatch(retrieveUserInfoIncome())
 
     }, [dispatch]);

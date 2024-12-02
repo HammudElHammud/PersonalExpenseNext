@@ -34,7 +34,9 @@ export default function Income(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(retrieveUserInfoCategory());
+        // @ts-ignore
         dispatch(retrieveUserInfoIncome());
     }, [dispatch]);
 

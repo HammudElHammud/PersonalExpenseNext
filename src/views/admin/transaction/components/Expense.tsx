@@ -34,8 +34,11 @@ export default function Expense(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(retrieveUserInfoCategory())
+        // @ts-ignore
         dispatch(retrieveUserInfoExpense())
+        // @ts-ignore
         dispatch(retrieveUserInfoIncome())
     }, [dispatch]);
 
