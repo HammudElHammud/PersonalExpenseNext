@@ -44,7 +44,9 @@ export default function HeaderLinks(props: {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(retrieveUserInfoExpense())
+        // @ts-ignore
         dispatch(retrieveUserInfoIncome())
 
     }, [dispatch]);
