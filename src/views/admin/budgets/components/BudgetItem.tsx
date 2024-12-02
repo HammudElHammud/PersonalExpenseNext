@@ -11,16 +11,7 @@ import Card from 'components/card/Card';
 // Assets
 import {FaDollarSign} from 'react-icons/fa';
 
-export default function BudgetItem(props: {
-    image: any | null;
-    name: string;
-    description: string;
-    remainingColor: string | null;
-    percentageSpent: string | null;
-    totalExpense: string | number | null;
-    remainingAmount: string | number | null;
-    isAdd: boolean | null
-}) {
+export default function BudgetItem(props: any) {
     const {image, name, description, totalExpense, remainingAmount, isAdd, percentageSpent} = props;
     const textColor = useColorModeValue('brands.900', 'white');
     const bgItem = useColorModeValue(
