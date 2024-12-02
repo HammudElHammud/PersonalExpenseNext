@@ -62,23 +62,41 @@ export default function Default() {
     const reportTemplateRef = useRef(null);
 
     const handleGeneratePdf = async () => {
-        setIsDownload(true)
+        setIsDownload(true);
         const doc = new jsPDF({
-            format: 'a2',
-            unit: 'px',
+            format: 'a4', // You can choose 'a4' or any format like 'letter'
+            unit: 'px',   // Using px as unit
         });
 
         const element = reportTemplateRef.current;
 
         await html2canvas(element).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
-            doc.addImage(imgData, 'PNG', 15, 15);
+
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+
+            const imgWidth = canvas.width;
+            const imgHeight = canvas.height;
+            const scaleX = pageWidth / imgWidth;
+            const scaleY = pageHeight / imgHeight;
+            const scale = Math.min(scaleX, scaleY);
+
+            const scaledWidth = imgWidth * scale;
+            const scaledHeight = imgHeight * scale;
+
+            const x = (pageWidth - scaledWidth) / 2;
+            const y = (pageHeight - scaledHeight) / 2;
+
+            doc.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
             doc.save('expenseAndIncome.pdf');
         });
-        setTimeout(()=>{
-            setIsDownload(false)
-        }, 1000)
+
+        setTimeout(() => {
+            setIsDownload(false);
+        }, 1000);
     };
+
 
 
     return (
