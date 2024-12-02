@@ -67,6 +67,9 @@ export default function Default() {
                     description={'Set a budget for a specific category'}
                     image={MdAdd}
                     isAdd={true}
+                    totalExpense={0}
+                    remainingAmount={0}
+                    percentageSpent={0}
                 />
             </Card>
 
