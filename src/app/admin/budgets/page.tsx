@@ -69,7 +69,7 @@ export default function Default() {
                     isAdd={true}
                     totalExpense={0}
                     remainingAmount={0}
-                    percentageSpent={0}
+                    percentageSpent={''}
                 />
             </Card>
 
