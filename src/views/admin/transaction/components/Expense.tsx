@@ -98,11 +98,11 @@ export default function Expense() {
                         console.log("Expense allowed");
                         setTimeout(() => {
                             // @ts-ignore
-                            dispatch(createUserInfoExpense(updatedData))
+                            dispatch(createUserInfoExpense(updatedData));
                             setAlertMessage(`Successfully Processed`);
                             setTimeout(() => {
-                                setAlertMessage("")
-                            }, 2000)
+                                setAlertMessage("");
+                            }, 2000);
                             actions.resetForm();
                             actions.setSubmitting(false);
                         }, 1000);
@@ -110,39 +110,48 @@ export default function Expense() {
                         setAlertMessage(`Amount exceeds the remaining allowance for ${category}`);
                         actions.setSubmitting(false);
                         setTimeout(() => {
-                            setAlertMessage("")
-                        }, 2000)
-                        return;
+                            setAlertMessage("");
+                        }, 2000);
                         console.log("Expense exceeds the remaining amount in the category");
                     }
-
                 }}
             >
                 {(props) => (
                     <Form>
                         <Field name="name">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.name && form.touched.name}>
+                                <FormControl isInvalid={Boolean(form.errors.name) && Boolean(form.touched.name)}>
                                     <FormLabel htmlFor="name">First name</FormLabel>
                                     <Input
                                         {...field}
                                         color={textColor}
-                                        id="name" placeholder="name" borderRadius="16px"/>
+                                        id="name"
+                                        placeholder="name"
+                                        borderRadius="16px"
+                                    />
                                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                                 </FormControl>
                             )}
                         </Field>
                         <Field name="category">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.category && form.touched.category} mt={4}>
+                                <FormControl
+                                    isInvalid={Boolean(form.errors.category) && Boolean(form.touched.category)}
+                                    mt={4}
+                                >
                                     <FormLabel htmlFor="category">Category</FormLabel>
-                                    <Select {...field} id="category" color={textColor} placeholder="Select category"
-                                            borderRadius="16px">
-                                        {
-                                            Object.values(Category).map((cat, indes) => {
-                                                return <option key={cat?.label} value={cat?.label}>{cat?.label}</option>
-                                            })
-                                        }
+                                    <Select
+                                        {...field}
+                                        id="category"
+                                        color={textColor}
+                                        placeholder="Select category"
+                                        borderRadius="16px"
+                                    >
+                                        {Object.values(Category).map((cat, index) => (
+                                            <option key={cat?.label} value={cat?.label}>
+                                                {cat?.label}
+                                            </option>
+                                        ))}
                                     </Select>
                                     <FormErrorMessage>{form.errors.category}</FormErrorMessage>
                                 </FormControl>
@@ -150,30 +159,56 @@ export default function Expense() {
                         </Field>
                         <Field name="description">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.description && form.touched.description} mt={4}>
+                                <FormControl
+                                    isInvalid={Boolean(form.errors.description) && Boolean(form.touched.description)}
+                                    mt={4}
+                                >
                                     <FormLabel htmlFor="description">Description</FormLabel>
-                                    <Input color={textColor} {...field} id="description" placeholder="description"
-                                           borderRadius="16px"/>
+                                    <Input
+                                        color={textColor}
+                                        {...field}
+                                        id="description"
+                                        placeholder="description"
+                                        borderRadius="16px"
+                                    />
                                     <FormErrorMessage>{form.errors.description}</FormErrorMessage>
                                 </FormControl>
                             )}
                         </Field>
                         <Field name="amount">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.amount && form.touched.amount} mt={4}>
+                                <FormControl
+                                    isInvalid={Boolean(form.errors.amount) && Boolean(form.touched.amount)}
+                                    mt={4}
+                                >
                                     <FormLabel htmlFor="amount">Amount</FormLabel>
-                                    <Input color={textColor} {...field} id="amount" placeholder="amount" type="number"
-                                           borderRadius="16px"/>
+                                    <Input
+                                        color={textColor}
+                                        {...field}
+                                        id="amount"
+                                        placeholder="amount"
+                                        type="number"
+                                        borderRadius="16px"
+                                    />
                                     <FormErrorMessage>{form.errors.amount}</FormErrorMessage>
                                 </FormControl>
                             )}
                         </Field>
                         <Field name="date">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.date && form.touched.date} mt={4}>
+                                <FormControl
+                                    isInvalid={Boolean(form.errors.date) && Boolean(form.touched.date)}
+                                    mt={4}
+                                >
                                     <FormLabel htmlFor="date">Date</FormLabel>
-                                    <Input color={textColor} {...field} id="date" placeholder="date" type="date"
-                                           borderRadius="16px"/>
+                                    <Input
+                                        color={textColor}
+                                        {...field}
+                                        id="date"
+                                        placeholder="date"
+                                        type="date"
+                                        borderRadius="16px"
+                                    />
                                     <FormErrorMessage>{form.errors.date}</FormErrorMessage>
                                 </FormControl>
                             )}
@@ -183,13 +218,14 @@ export default function Expense() {
                             colorScheme="brand"
                             isLoading={props.isSubmitting}
                             type="submit"
-                            color={'white'}
+                            color={"white"}
                         >
                             Submit
                         </Button>
                     </Form>
                 )}
             </Formik>
+
         </>
     );
 }

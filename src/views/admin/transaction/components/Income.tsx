@@ -110,7 +110,7 @@ export default function Income() {
                         categoryAmounts,
                     };
 
-                    updateIncomeData(updatedValues)
+                    updateIncomeData(updatedValues);
                     setTimeout(() => {
                         actions.resetForm();
                         actions.setSubmitting(false);
@@ -119,10 +119,9 @@ export default function Income() {
             >
                 {(props) => (
                     <Form>
-
                         <Field name="name">
                             {({ field, form }: FieldProps) => (
-                                <FormControl isInvalid={form.errors.name && form.touched.name}>
+                                <FormControl isInvalid={Boolean(form.errors.name) && Boolean(form.touched.name)}>
                                     <FormLabel htmlFor="name">First name</FormLabel>
                                     <Input
                                         {...field}
@@ -137,13 +136,13 @@ export default function Income() {
                         </Field>
                         {categories.map((category) => (
                             <Field name={`categoryPercentages.${category}`} key={category}>
-                                {({field, form}) => (
+                                {({ field, form }) => (
                                     <FormControl
                                         isInvalid={
                                             form.errors.categoryPercentages &&
                                             form.touched.categoryPercentages &&
-                                            form.errors.categoryPercentages[category] &&
-                                            form.touched.categoryPercentages[category]
+                                            Boolean(form.errors.categoryPercentages[category]) &&
+                                            Boolean(form.touched.categoryPercentages[category])
                                         }
                                         mt={4}
                                     >
@@ -164,10 +163,7 @@ export default function Income() {
                                                     ...props.values.categoryPercentages,
                                                     [category]: value,
                                                 };
-                                                props.setFieldValue(
-                                                    "categoryPercentages",
-                                                    newPercentages
-                                                );
+                                                props.setFieldValue("categoryPercentages", newPercentages);
                                                 props.validateForm();
                                             }}
                                             borderRadius="16px"
@@ -188,7 +184,7 @@ export default function Income() {
                         <Field name="description">
                             {({ field, form }: FieldProps) => (
                                 <FormControl
-                                    isInvalid={form.errors.description && form.touched.description}
+                                    isInvalid={Boolean(form.errors.description) && Boolean(form.touched.description)}
                                     mt={4}
                                 >
                                     <FormLabel htmlFor="description">Description</FormLabel>
@@ -206,7 +202,7 @@ export default function Income() {
                         <Field name="amount">
                             {({ field, form }: FieldProps) => (
                                 <FormControl
-                                    isInvalid={form.errors.amount && form.touched.amount}
+                                    isInvalid={Boolean(form.errors.amount) && Boolean(form.touched.amount)}
                                     mt={4}
                                 >
                                     <FormLabel htmlFor="amount">Amount</FormLabel>
@@ -225,7 +221,7 @@ export default function Income() {
                         <Field name="date">
                             {({ field, form }: FieldProps) => (
                                 <FormControl
-                                    isInvalid={form.errors.date && form.touched.date}
+                                    isInvalid={Boolean(form.errors.date) && Boolean(form.touched.date)}
                                     mt={4}
                                 >
                                     <FormLabel htmlFor="date">Date</FormLabel>
@@ -247,13 +243,14 @@ export default function Income() {
                             isLoading={props.isSubmitting}
                             type="submit"
                             color={"white"}
-                            isDisabled={props.errors.totalPercentage ? true : false}
+                            isDisabled={Boolean(props.errors.totalPercentage)}
                         >
                             Submit
                         </Button>
                     </Form>
                 )}
             </Formik>
+
         </>
 
     );
