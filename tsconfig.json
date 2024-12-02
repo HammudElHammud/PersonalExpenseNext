@@ -13,6 +13,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "noEmitOnError": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
