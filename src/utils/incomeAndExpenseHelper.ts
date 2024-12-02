@@ -71,8 +71,17 @@ export const sumAmounts = (data) => {
   return data.reduce((total, item) => total + item.amount, 0);
 };
 
+interface IncomeItem {
+  name: string;
+  categoryPercentages: Record<string, number>;
+  description: string;
+  amount: number;
+  date: string;
+  categoryAmounts: Record<string, string>;
+}
+
 // @ts-ignore
-export const sumIncomeForDateRange = (incomeData, startDate, endDate) => {
+export const sumIncomeForDateRange = (incomeData: IncomeItem[], startDate, endDate) => {
   // @ts-ignore
   return incomeData
       .filter(item => {
