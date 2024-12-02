@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import {Field, Form, Formik} from "formik";
+import {Field, Form, Formik, FieldProps } from "formik";
 import * as Yup from "yup";
 import {useDispatch, useSelector} from "react-redux";
 import {IReducer} from "../../../../store/store";
@@ -119,8 +119,9 @@ export default function Income() {
             >
                 {(props) => (
                     <Form>
+
                         <Field name="name">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.name && form.touched.name}>
                                     <FormLabel htmlFor="name">First name</FormLabel>
                                     <Input
@@ -185,7 +186,7 @@ export default function Income() {
                             </Box>
                         )}
                         <Field name="description">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl
                                     isInvalid={form.errors.description && form.touched.description}
                                     mt={4}
@@ -203,7 +204,7 @@ export default function Income() {
                             )}
                         </Field>
                         <Field name="amount">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl
                                     isInvalid={form.errors.amount && form.touched.amount}
                                     mt={4}
@@ -222,7 +223,7 @@ export default function Income() {
                             )}
                         </Field>
                         <Field name="date">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl
                                     isInvalid={form.errors.date && form.touched.date}
                                     mt={4}

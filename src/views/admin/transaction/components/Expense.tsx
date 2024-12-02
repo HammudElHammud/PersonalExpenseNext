@@ -12,7 +12,7 @@ import {
 
 import {calculateRemainingAmounts} from "../../../../utils/incomeAndExpenseHelper"
 
-import {Field, Form, Formik} from "formik";
+import {Field, FieldProps, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {useDispatch, useSelector} from "react-redux";
 import {IReducer} from "../../../../store/store";
@@ -121,7 +121,7 @@ export default function Expense() {
                 {(props) => (
                     <Form>
                         <Field name="name">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.name && form.touched.name}>
                                     <FormLabel htmlFor="name">First name</FormLabel>
                                     <Input
@@ -133,7 +133,7 @@ export default function Expense() {
                             )}
                         </Field>
                         <Field name="category">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.category && form.touched.category} mt={4}>
                                     <FormLabel htmlFor="category">Category</FormLabel>
                                     <Select {...field} id="category" color={textColor} placeholder="Select category"
@@ -149,7 +149,7 @@ export default function Expense() {
                             )}
                         </Field>
                         <Field name="description">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.description && form.touched.description} mt={4}>
                                     <FormLabel htmlFor="description">Description</FormLabel>
                                     <Input color={textColor} {...field} id="description" placeholder="description"
@@ -159,7 +159,7 @@ export default function Expense() {
                             )}
                         </Field>
                         <Field name="amount">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.amount && form.touched.amount} mt={4}>
                                     <FormLabel htmlFor="amount">Amount</FormLabel>
                                     <Input color={textColor} {...field} id="amount" placeholder="amount" type="number"
@@ -169,7 +169,7 @@ export default function Expense() {
                             )}
                         </Field>
                         <Field name="date">
-                            {({field, form}) => (
+                            {({ field, form }: FieldProps) => (
                                 <FormControl isInvalid={form.errors.date && form.touched.date} mt={4}>
                                     <FormLabel htmlFor="date">Date</FormLabel>
                                     <Input color={textColor} {...field} id="date" placeholder="date" type="date"
