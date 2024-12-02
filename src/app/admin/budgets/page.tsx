@@ -43,8 +43,9 @@ export default function Default() {
     const totalExpenses = calculateTotalExpenses(stateExpense);
     const { remainingAmounts, percentageSpent } = calculateRemainingInfoAmounts(stateIncome, totalExpenses);
 
-
+// @ts-ignore
     return (
+        // @ts-ignore
         <Box pt={{base: '130px', md: '80px', xl: '80px'}}  gap="20px"
              mb="20px"
              mt='5'>
@@ -64,10 +65,7 @@ export default function Default() {
                 <BudgetItem
                     name={'Create a custom budget'}
                     description={'Set a budget for a specific category'}
-                    date={''}
                     image={MdAdd}
-                    price={''}
-                    originPrice={''}
                     isAdd={true}
                 />
             </Card>
@@ -95,6 +93,7 @@ export default function Default() {
                             totalExpense={totalExpenses[budget?.label] || 0}
                             remainingAmount={remainingAmounts[budget?.label] || 0}
                             percentageSpent={percentage}
+                            isAdd={false}
                         />
                     );
                 })}

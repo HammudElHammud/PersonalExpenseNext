@@ -12,11 +12,11 @@ import Card from 'components/card/Card';
 import {FaDollarSign} from 'react-icons/fa';
 
 export default function BudgetItem(props: {
-    image: any;
+    image: any | null;
     name: string;
     description: string;
-    remainingColor: string;
-    percentageSpent: string;
+    remainingColor: string | null;
+    percentageSpent: string | null;
     totalExpense: string | number | null;
     remainingAmount: string | number | null;
     isAdd: boolean | null
