@@ -15,14 +15,13 @@ import {IReducer} from "../../../../store/store";
 import {retrieveUserInfoCategory} from "../../../../store/reducers/Category";
 import {createUserInfoIncome, retrieveUserInfoIncome} from "../../../../store/reducers/Income";
 
-export default function Income(props) {
+export default function Income() {
     const stateCategories = useSelector((state: IReducer) => state.Category);
     const [alertMessage, setAlertMessage] = useState("");
 
     const categories = Object.values(stateCategories).map((cat) => {
         return cat.label
     })
-    const {...rest} = props;
 
     const textColor = useColorModeValue('brands.900', 'white');
     const bgItem = useColorModeValue(

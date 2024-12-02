@@ -20,14 +20,13 @@ import {retrieveUserInfoCategory} from "../../../../store/reducers/Category";
 import {retrieveUserInfoIncome} from "../../../../store/reducers/Income";
 import {createUserInfoExpense, retrieveUserInfoExpense} from "../../../../store/reducers/Expense";
 
-export default function Expense(props) {
+export default function Expense() {
     const Category = useSelector((state: IReducer) => state.Category);
     const stateIncome = useSelector((state: IReducer) => state.Income);
     const stateExpense = useSelector((state: IReducer) => state.Expense);
     const [alertMessage, setAlertMessage] = useState("");
 
 
-    const {...rest} = props;
     const textColor = useColorModeValue('brands.900', 'white');
 
 
