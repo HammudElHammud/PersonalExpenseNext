@@ -43,8 +43,8 @@ export default function Expense() {
 
 
     const remainingAmounts = calculateRemainingAmounts(stateIncome, stateExpense);
-
-    const canAllowExpense = (newExpense) => {
+    // @ts-ignore
+    const canAllowExpense = (newExpense: any) => {
         const remaining = remainingAmounts[newExpense.category];
         return remaining >= newExpense.amount;
     };
