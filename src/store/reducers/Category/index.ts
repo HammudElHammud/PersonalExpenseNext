@@ -16,18 +16,18 @@ interface IInitialState {
     description: string
 }
 
-interface IRetrieveUser {
+interface IRetrieveUserCategory {
     type: UserActionEnum.RETRIEVE_USER_CATEGORY
-    payload: IInitialState
+    payload: IInitialState[]
 }
 
-interface IUpdateUser {
+interface IUpdateUserCategory {
     type: UserActionEnum.UPDATE_USER_CATEGORY
     payload: IInitialState[]
 }
 
 
-type IAction = IRetrieveUser | IUpdateUser
+type IAction = IRetrieveUserCategory | IUpdateUserCategory
 
 const initialState: {} = {}
 
