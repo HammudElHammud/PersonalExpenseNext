@@ -1,4 +1,18 @@
+# Project Goals
+
+- **Add Income and Expenses**: Users should be able to add income and expense entries, with the ability to assign a description, amount, and date to each entry.
+- **Budget Limits and Alerts**: Users can set budget limits for each expense category. The application will notify users when they reach 80% of the set limit for each category.
+- **Reporting and Analysis**: Users can view monthly and yearly reports of their income and expenses in visual formats (e.g., pie chart, bar chart).
+- **Expense Categories and Related Expenses**: Users can categorize their income and expenses to keep the budget more organized.
+- **Responsive Design**: The application should be compatible with mobile, tablet, and desktop devices.
+
+
+
+
 # Prerequisites
+
+
+
 
 Ensure you have `npm` and node installed on your local machine.
 
